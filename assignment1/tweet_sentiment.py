@@ -6,14 +6,13 @@ tweets = []
 tweetScores = []
 
 def hw():
-    print 'Hello, world!'
-
+    # print 'Hello, world!'
     for tweet in tweets:
         if 'text' in tweet:
             # if tweet['lang'] == "en":
             tweetScores.append(getScore(tweet['text']))
-        else:
-            tweetScores.append(0)
+        # else:
+        #     tweetScores.append(0)
     for score in tweetScores:
         print score
 
@@ -36,8 +35,9 @@ def readTweets(file):
 
 
 def getScore(text):
+    encoded_string = text.encode('utf-8')
     # print text
-    words = text.split(" ")
+    words = encoded_string.split(" ")
     score = 0
     # print words
     for word in words:
@@ -53,8 +53,8 @@ def main():
     readTweets(tweet_file)
     hw()
     # print tweetScores
-    lines(sent_file)
-    lines(tweet_file)
+    # lines(sent_file)
+    # lines(tweet_file)
 
 if __name__ == '__main__':
     main()
